@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>oss-framework</module>
         <module>oss-storageNode</module>
         <module>oss-gateway</module>
     </modules>
@@ -47,6 +48,7 @@
         <nacos-config.version>0.3.0-RC</nacos-config.version>
         <feign-form.version>3.8.0</feign-form.version>
         <caffeine.version>3.1.8</caffeine.version>
+        <spring-file-storage.version>1.0.3</spring-file-storage.version>
     </properties>
 
     <dependencyManagement>
@@ -150,6 +152,26 @@
                 <artifactId>caffeine</artifactId>
                 <version>${caffeine.version}</version>
             </dependency>
+
+            <!-- SpringFileStorage 文件操作-->
+            <dependency>
+                <groupId>cn.xuyanwu</groupId>
+                <artifactId>spring-file-storage</artifactId>
+                <version>${spring-file-storage.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.edu.zjut</groupId>
+                <artifactId>oss-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.edu.zjut</groupId>
+                <artifactId>storageNode-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

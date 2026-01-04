@@ -9,22 +9,24 @@
     </parent>
     <artifactId>oss-storageNode</artifactId>
     <version>${revision}</version>
+    <packaging>pom</packaging>
     <name>${artifactId}</name>
     <description>物理存储节点</description>
+
+    <modules>
+        <module>storageNode-api</module>
+        <module>storageNode-biz</module>
+    </modules>
+
     <properties>
         <java.version>17</java.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>cn.edu.zjut</groupId>
+            <artifactId>oss-common</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 
