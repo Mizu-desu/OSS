@@ -64,8 +64,8 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.xuyanwu</groupId>
-            <artifactId>spring-file-storage</artifactId>
+            <groupId>org.dromara.x-file-storage</groupId>
+            <artifactId>x-file-storage-spring</artifactId>
         </dependency>
 
         <dependency>

@@ -1,7 +1,7 @@
 package cn.edu.zjut.oss.storagenode.controller;
 
 import cn.edu.zjut.oss.common.response.Response;
-import cn.edu.zjut.oss.storagenode.service.storageNodeService;
+import cn.edu.zjut.oss.storagenode.service.StorageNodeService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/storageNode")
 @Slf4j
-public class storageNodeController {
+public class StorageNodeController {
     @Resource
-    private storageNodeService storageNodeService;
+    private StorageNodeService storageNodeService;
 
     /**
      * 保存文件

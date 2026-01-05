@@ -2,7 +2,7 @@ package cn.edu.zjut.oss.storagenode.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public interface storageNodeService {
+public interface StorageNodeService {
     /**
      *  保存文件
      * @param file

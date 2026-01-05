@@ -48,7 +48,7 @@
         <nacos-config.version>0.3.0-RC</nacos-config.version>
         <feign-form.version>3.8.0</feign-form.version>
         <caffeine.version>3.1.8</caffeine.version>
-        <spring-file-storage.version>1.0.3</spring-file-storage.version>
+        <spring-file-storage.version>2.2.0</spring-file-storage.version>
     </properties>
 
     <dependencyManagement>
@@ -155,8 +155,8 @@
 
             <!-- SpringFileStorage 文件操作-->
             <dependency>
-                <groupId>cn.xuyanwu</groupId>
-                <artifactId>spring-file-storage</artifactId>
+                <groupId>org.dromara.x-file-storage</groupId>
+                <artifactId>x-file-storage-spring</artifactId>
                 <version>${spring-file-storage.version}</version>
             </dependency>
 
