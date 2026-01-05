@@ -1,5 +1,6 @@
 package cn.edu.zjut.oss.storagenode.controller;
 
+import DTO.req.FilePartUploadReqDto;
 import cn.edu.zjut.oss.common.response.Response;
 import cn.edu.zjut.oss.storagenode.service.StorageNodeService;
 import jakarta.annotation.Resource;
@@ -25,6 +26,11 @@ public class StorageNodeController {
     public String getStorageNode(MultipartFile file) {
         storageNodeService.saveStorageNode(file);
         return Response.success().getMessage();
+    }
+
+    @PostMapping("/upload/part")
+    public String uploadPart(FilePartUploadReqDto filePartUploadReqDto) {
+        storageNodeService.uploadPart(filePartUploadReqDto);
     }
 
     /**

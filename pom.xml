@@ -49,6 +49,7 @@
         <feign-form.version>3.8.0</feign-form.version>
         <caffeine.version>3.1.8</caffeine.version>
         <spring-file-storage.version>2.2.0</spring-file-storage.version>
+        <blake3.version>2.9.0</blake3.version>
     </properties>
 
     <dependencyManagement>
@@ -160,6 +161,13 @@
                 <version>${spring-file-storage.version}</version>
             </dependency>
 
+            <!-- Blake3 加密 -->
+            <dependency>
+                <groupId>ky.korins</groupId>
+                <artifactId>blake3_3</artifactId>
+                <version>${blake3.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>cn.edu.zjut</groupId>
                 <artifactId>oss-common</artifactId>
@@ -171,6 +179,7 @@
                 <artifactId>storageNode-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>

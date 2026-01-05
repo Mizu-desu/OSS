@@ -1,6 +1,9 @@
 package cn.edu.zjut.oss.storagenode.service;
 
+import DTO.req.FilePartUploadReqDto;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 public interface StorageNodeService {
     /**
@@ -20,4 +23,10 @@ public interface StorageNodeService {
      * @param fileName
      */
     void deleteStorageNode(String fileName);
+
+    /**
+     *  上传分片
+     * @param filePartUploadReqDto
+     */
+    void uploadPart(FilePartUploadReqDto filePartUploadReqDto) throws IOException;
 }

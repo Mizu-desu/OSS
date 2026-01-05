@@ -17,11 +17,6 @@ public class FileDetail {
     private String id;
 
     /**
-     * 文件访问地址
-     */
-    private String url;
-
-    /**
      * 文件大小，单位字节
      */
     private Long size;
@@ -32,79 +27,24 @@ public class FileDetail {
     private String filename;
 
     /**
-     * 原始文件名
+     * 是否被删除
      */
-    private String originalFilename;
+    private Boolean isDeleted;
 
     /**
-     * 基础存储路径
+     * 文件是否被分片
      */
-    private String basePath;
+    private Boolean isPart;
 
     /**
-     * 存储路径
+     * 文件哈希信息
      */
-    private String path;
+    private String hashInfo;
 
     /**
-     * 文件扩展名
+     * 文件路径
      */
-    private String ext;
-
-    /**
-     * MIME类型
-     */
-    private String contentType;
-
-    /**
-     * 存储平台
-     */
-    private String platform;
-
-    /**
-     * 缩略图访问路径
-     */
-    private String thUrl;
-
-    /**
-     * 缩略图名称
-     */
-    private String thFilename;
-
-    /**
-     * 缩略图大小，单位字节
-     */
-    private Long thSize;
-
-    /**
-     * 缩略图MIME类型
-     */
-    private String thContentType;
-
-    /**
-     * 文件所属对象id
-     */
-    private String objectId;
-
-    /**
-     * 文件所属对象类型，例如用户头像，评价图片
-     */
-    private String objectType;
-
-    /**
-     * 附加属性（JSON 格式存储）
-     */
-    private String attr;
-
-    /**
-     * 文件ACL
-     */
-    private String fileAcl;
-
-    /**
-     * 缩略图文件ACL
-     */
-    private String thFileAcl;
+    private String filePath;
 
     /**
      * 创建时间
