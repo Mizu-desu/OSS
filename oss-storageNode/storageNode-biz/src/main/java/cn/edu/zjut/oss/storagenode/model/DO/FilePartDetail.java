@@ -3,6 +3,8 @@ package cn.edu.zjut.oss.storagenode.model.DO;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Builder;
 import lombok.Data;
+import org.dromara.x.file.storage.core.FileInfo;
+
 import java.util.Date;
 
 /**
@@ -53,4 +55,46 @@ public class FilePartDetail {
      */
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+
+    /**
+     * 文件分片物理存储信息克隆
+     *
+     * @param filePartDetail
+     * @return
+     */
+    public FilePartDetail filePartStoreInfoClone(FilePartDetail filePartDetail) {
+        return new FilePartDetailBuilder()
+                .filePath(filePartDetail.getFilePath())
+                .filename(filePartDetail.getFilename())
+                .partSize(filePartDetail.getPartSize())
+                .hashInfo(filePartDetail.getHashInfo())
+                .createTime(filePartDetail.getCreateTime())
+                .build();
+    }
+
+    /**
+     * FileInfo 转 FilePartDetail
+     *
+     * @param fileInfo
+     * @param hashInfo
+     * @param partNumber
+     * @return
+     */
+    public static FilePartDetail convertFilePartDetail(FileInfo fileInfo, String hashInfo, String parentId, Integer partNumber) {
+        return FilePartDetail.builder()
+                .id(fileInfo.getId())
+                .filePath(fileInfo.getPath())
+                .filename(fileInfo.getFilename())
+                .hashInfo(hashInfo)
+                .parentId(parentId)
+                .partNumber(partNumber)
+                .partSize(fileInfo.getSize())
+                .createTime(fileInfo.getCreateTime())
+                .updateTime(new Date())
+                .build();
+    }
 }

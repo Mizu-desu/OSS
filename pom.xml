@@ -50,6 +50,7 @@
         <caffeine.version>3.1.8</caffeine.version>
         <spring-file-storage.version>2.2.0</spring-file-storage.version>
         <blake3.version>2.9.0</blake3.version>
+        <fastJson2.version>2.0.41</fastJson2.version>
     </properties>
 
     <dependencyManagement>
@@ -159,6 +160,12 @@
                 <groupId>org.dromara.x-file-storage</groupId>
                 <artifactId>x-file-storage-spring</artifactId>
                 <version>${spring-file-storage.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastJson2.version}</version>
             </dependency>
 
             <!-- Blake3 加密 -->

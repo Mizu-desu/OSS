@@ -29,12 +29,12 @@ public class FileDetail {
     /**
      * 是否被删除
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 文件是否被分片
      */
-    private Boolean isPart;
+    private Integer isPart;
 
     /**
      * 文件哈希信息
