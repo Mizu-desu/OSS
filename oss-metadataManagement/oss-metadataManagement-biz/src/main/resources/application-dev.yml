@@ -53,14 +53,3 @@ spring:
           min-idle: 0 # 连接池中的最小空闲连接
           max-idle: 10 # 连接池中的最大空闲连接
 
-store:
-  local_platform: local-plus
-  path: all/
-  part-path : part/
-
-dromara:
-  x-file-storage:
-    local-plus:
-      - platform: ${store.local_platform} # 平台名称
-        enable-storage: true # 是否开启存储
-        storage-path: ./data/local-plus/

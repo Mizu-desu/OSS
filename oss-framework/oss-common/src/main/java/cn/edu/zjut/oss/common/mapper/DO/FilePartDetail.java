@@ -1,9 +1,10 @@
-package cn.edu.zjut.oss.storagenode.model.DO;
+package cn.edu.zjut.oss.common.mapper.DO;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Builder;
 import lombok.Data;
-import org.dromara.x.file.storage.core.FileInfo;
 
 import java.util.Date;
 
@@ -18,6 +19,7 @@ public class FilePartDetail {
     /**
      * 分片id
      */
+    @TableId(type =  IdType.ASSIGN_ID)
     private String id;
 
     /**
@@ -33,7 +35,17 @@ public class FilePartDetail {
     /**
      * 存储路径
      */
-    private String filePath;
+    private String url;
+
+    /**
+     * 文件存储平台
+     */
+    private String platform;
+
+    /**
+     * 文件存储路径
+     */
+    private String path;
 
     /**
      * 文件名
@@ -61,40 +73,31 @@ public class FilePartDetail {
     private Date updateTime;
 
     /**
+     * 是否被删除
+     */
+    private Integer isDeleted;
+
+    /**
      * 文件分片物理存储信息克隆
      *
      * @param filePartDetail
      * @return
      */
-    public FilePartDetail filePartStoreInfoClone(FilePartDetail filePartDetail) {
+    public static FilePartDetail clone(FilePartDetail filePartDetail) {
         return new FilePartDetailBuilder()
-                .filePath(filePartDetail.getFilePath())
+                .id(filePartDetail.getId())
+                .platform(filePartDetail.getPlatform())
+                .path(filePartDetail.getPath())
+                .partNumber(filePartDetail.getPartNumber())
+                .parentId(filePartDetail.getParentId())
+                .url(filePartDetail.getUrl())
                 .filename(filePartDetail.getFilename())
                 .partSize(filePartDetail.getPartSize())
                 .hashInfo(filePartDetail.getHashInfo())
                 .createTime(filePartDetail.getCreateTime())
+                .updateTime(filePartDetail.getUpdateTime())
+                .isDeleted(filePartDetail.getIsDeleted())
                 .build();
     }
 
-    /**
-     * FileInfo 转 FilePartDetail
-     *
-     * @param fileInfo
-     * @param hashInfo
-     * @param partNumber
-     * @return
-     */
-    public static FilePartDetail convertFilePartDetail(FileInfo fileInfo, String hashInfo, String parentId, Integer partNumber) {
-        return FilePartDetail.builder()
-                .id(fileInfo.getId())
-                .filePath(fileInfo.getPath())
-                .filename(fileInfo.getFilename())
-                .hashInfo(hashInfo)
-                .parentId(parentId)
-                .partNumber(partNumber)
-                .partSize(fileInfo.getSize())
-                .createTime(fileInfo.getCreateTime())
-                .updateTime(new Date())
-                .build();
-    }
 }

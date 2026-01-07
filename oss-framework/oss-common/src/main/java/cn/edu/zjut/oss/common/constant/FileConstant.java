@@ -1,4 +1,4 @@
-package cn.edu.zjut.oss.storagenode.constant;
+package cn.edu.zjut.oss.common.constant;
 
 public class FileConstant {
 

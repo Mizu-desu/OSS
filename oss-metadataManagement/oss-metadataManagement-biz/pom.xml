@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.edu.zjut</groupId>
-        <artifactId>oss-storageNode</artifactId>
-        <version>${revision}</version>
+        <artifactId>oss-metadataManagement</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>storageNode-biz</artifactId>
+    <artifactId>oss-metadataManagement-biz</artifactId>
     <name>${artifactId}</name>
-    <description>物理存储节点业务模块</description>
+    <description>元数据管理业务逻辑层</description>
 
     <dependencies>
         <dependency>
@@ -70,9 +70,9 @@
 
         <dependency>
             <groupId>cn.edu.zjut</groupId>
-            <artifactId>storageNode-api</artifactId>
-            <version>${revision}</version>
+            <artifactId>oss-metadataManagement-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>cn.edu.zjut</groupId>
             <artifactId>oss-storageNode-api</artifactId>

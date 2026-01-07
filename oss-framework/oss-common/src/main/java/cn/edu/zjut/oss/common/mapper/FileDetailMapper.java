@@ -1,6 +1,6 @@
-package cn.edu.zjut.oss.storagenode.mapper;
+package cn.edu.zjut.oss.common.mapper;
 
-import cn.edu.zjut.oss.storagenode.model.DO.FileDetail;
+import cn.edu.zjut.oss.common.mapper.DO.FileDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

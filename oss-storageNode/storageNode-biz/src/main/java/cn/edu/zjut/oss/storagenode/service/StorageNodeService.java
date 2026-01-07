@@ -1,32 +1,36 @@
 package cn.edu.zjut.oss.storagenode.service;
 
+import DTO.req.FileDownloadReqDto;
 import DTO.req.FilePartUploadReqDto;
-import org.springframework.web.multipart.MultipartFile;
+import DTO.req.FileUploadReqDto;
+import DTO.resp.FilePartUploadRespDto;
+import DTO.resp.FileUploadRespDto;
 
 import java.io.IOException;
 
 public interface StorageNodeService {
-    /**
-     *  保存文件
-     * @param file
-     */
-    void saveStorageNode(MultipartFile file);
 
     /**
-     *  获取文件
-     * @param fileName
+     * 上传文件
+     * @param fileUploadReqDto
      */
-    void getStorageNode(String fileName);
+    FileUploadRespDto upload(FileUploadReqDto  fileUploadReqDto) throws IOException;
 
-    /**
-     *  删除文件
-     * @param fileName
-     */
-    void deleteStorageNode(String fileName);
 
     /**
      *  上传分片
      * @param filePartUploadReqDto
      */
-    void uploadPart(FilePartUploadReqDto filePartUploadReqDto) throws IOException;
+    FilePartUploadRespDto uploadPart(FilePartUploadReqDto filePartUploadReqDto) throws IOException;
+
+    /**
+     * 下载文件
+     * @param fileDownloadReqDto
+     */
+    byte [] download(FileDownloadReqDto fileDownloadReqDto) throws IOException;
+
+
+
+
+
 }

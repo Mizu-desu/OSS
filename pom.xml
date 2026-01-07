@@ -18,6 +18,7 @@
         <module>oss-framework</module>
         <module>oss-storageNode</module>
         <module>oss-gateway</module>
+        <module>oss-metadataManagement</module>
     </modules>
 
 
@@ -183,10 +184,15 @@
 
             <dependency>
                 <groupId>cn.edu.zjut</groupId>
-                <artifactId>storageNode-api</artifactId>
+                <artifactId>oss-storageNode-api</artifactId>
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>cn.edu.zjut</groupId>
+                <artifactId>oss-metadataManagement-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

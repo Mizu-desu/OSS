@@ -1,14 +1,20 @@
 package cn.edu.zjut.oss.storagenode.controller;
 
+import DTO.req.FileDownloadReqDto;
 import DTO.req.FilePartUploadReqDto;
+import DTO.req.FileUploadReqDto;
+import DTO.resp.FilePartUploadRespDto;
+import DTO.resp.FileUploadRespDto;
 import cn.edu.zjut.oss.common.response.Response;
 import cn.edu.zjut.oss.storagenode.service.StorageNodeService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/storageNode")
@@ -18,40 +24,48 @@ public class StorageNodeController {
     private StorageNodeService storageNodeService;
 
     /**
-     * 保存文件
-     * @param file
+     * 保存完整文件
+     *
+     * @param fileUploadReqDto
      * @return
      */
-    @PostMapping("/save")
-    public String getStorageNode(MultipartFile file) {
-        storageNodeService.saveStorageNode(file);
-        return Response.success().getMessage();
-    }
-
-    @PostMapping("/upload/part")
-    public String uploadPart(FilePartUploadReqDto filePartUploadReqDto) {
-        storageNodeService.uploadPart(filePartUploadReqDto);
+    @PostMapping("/upload/all")
+    public FileUploadRespDto upload(FileUploadReqDto fileUploadReqDto) throws IOException {
+        return storageNodeService.upload(fileUploadReqDto);
     }
 
     /**
-     * 获取文件
-     * @param fileName
+     * 保存分片信息
+     *
+     * @param filePartUploadReqDto
      * @return
      */
-    @PostMapping("/get")
-    public String getStorageNode(String fileName) {
-        storageNodeService.getStorageNode(fileName);
-        return Response.success().getMessage();
+    @PostMapping("/upload/part")
+    public FilePartUploadRespDto uploadPart(FilePartUploadReqDto filePartUploadReqDto) throws IOException {
+        return storageNodeService.uploadPart(filePartUploadReqDto);
+    }
+
+    /**
+     * 下载文件
+     *
+     * @param fileDownloadReqDto
+     * @return
+     */
+    @PostMapping("/download")
+    public ResponseEntity<byte []> download(FileDownloadReqDto fileDownloadReqDto) throws IOException {
+        byte[] file = storageNodeService.download(fileDownloadReqDto);
+        return ResponseEntity.ok().body(file);
     }
 
     /**
      * 删除文件
+     *
      * @param fileName
      * @return
      */
     @PostMapping("/delete")
     public String deleteStorageNode(String fileName) {
-        storageNodeService.deleteStorageNode(fileName);
         return Response.success().getMessage();
     }
+
 }

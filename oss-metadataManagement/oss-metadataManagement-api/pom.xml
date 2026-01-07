@@ -5,20 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.edu.zjut</groupId>
-        <artifactId>oss-storageNode</artifactId>
+        <artifactId>oss-metadataManagement</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <!-- 打包方式-->
-    <packaging>jar</packaging>
-
-    <artifactId>oss-storageNode-api</artifactId>
+    <artifactId>oss-metadataManagement-api</artifactId>
     <name>${artifactId}</name>
-    <description>RPC层,物理存储节点远程调用API</description>
+    <description>元数据管理RPC服务接口</description>
 
     <dependencies>
         <!-- Spring Cloud OpenFeign -->
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -28,7 +24,5 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
-
     </dependencies>
-
 </project>
